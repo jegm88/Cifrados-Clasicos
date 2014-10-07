@@ -1,20 +1,27 @@
 #Cifrado afin
+alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+ta = len(alfabeto)
 cr = ''
+
 print("Digite el mensaje a cifrar:")
-mensaje = input().lower()
+m = input()
 print("Digite la constante de decimación:")
 a = int(input())
-print("Digite el nro. desplazamiento:")
-b = int(input())
-print("Digite el nro. caracteres del alfabeto:")
-m = int(input())
+print("Digite clave de cifra (K):")
+k = int(input())
 
-for c in mensaje:
-	nc = (ord(c)-97)
-	if (nc >= 0 and nc < m) or c == ' ':
-		if c != ' ':
-			val = (nc*a+b)%m
-			cr += chr(val+97)
-		else:
-			cr += ' '
+for c in m:
+	if c.upper() in alfabeto:
+		nc = (alfabeto.index(c.upper()))
+		if (nc >= 0 and nc < ta) or c == ' ':
+			if c != ' ':
+				val = (nc*a+k)%ta
+				if c.isupper():
+					cr += alfabeto[val].upper()
+				else:
+					cr += alfabeto[val].lower()
+			else:
+				cr += ' '
+	else:
+		cr += c
 print(cr)

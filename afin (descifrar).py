@@ -17,7 +17,7 @@ for c in m:
 		nc = (alfabeto.index(c.upper()))
 		if (nc >= 0 and nc < ta) or c == ' ':
 			if c != ' ':
-				val = (nc*a+k)%ta
+				val = (nc*a-k)%ta
 				if c.isupper():
 					cr += alfabeto[val].upper()
 				else:

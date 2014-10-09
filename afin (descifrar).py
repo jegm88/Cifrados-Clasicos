@@ -1,11 +1,11 @@
-#Cifrado afin
+#Descifrado afin
 archivo = open('alfabeto1.txt','r')
 alfabeto = archivo.read().split(',')
 archivo.close()
 ta = len(alfabeto)
 cr = ''
 
-print("Digite el mensaje a cifrar:")
+print("Digite el mensaje a descifrar:")
 m = input()
 print("Digite la constante de decimación:")
 a = int(input())

@@ -1,5 +1,8 @@
 #Cifrado afin
-alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+archivo = open('alfabeto1.txt','r')
+#alfabeto = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+alfabeto = archivo.read().split(',')
+archivo.close()
 ta = len(alfabeto)
 cr = ''
 

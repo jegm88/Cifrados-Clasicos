@@ -1,4 +1,4 @@
-#Cifrado sustitucion simple
+#Descifrado sustitucion simple
 cr = ''
 archivo = open('alfabeto1.txt','r')
 alfabeto1 = archivo.read().split(',')

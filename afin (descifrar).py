@@ -12,18 +12,23 @@ a = int(input())
 print("Digite clave de cifra (K):")
 k = int(input())
 
-for c in m:
-	if c.upper() in alfabeto:
-		nc = (alfabeto.index(c.upper()))
-		if (nc >= 0 and nc < ta) or c == ' ':
-			if c != ' ':
-				val = (nc*a-k)%ta
-				if c.isupper():
-					cr += alfabeto[val].upper()
+if(k>=0):
+	if k>ta:
+		k = k%ta
+	for c in m:
+		if c.upper() in alfabeto:
+			nc = (alfabeto.index(c.upper()))
+			if (nc >= 0 and nc < ta) or c == ' ':
+				if c != ' ':
+					val = (nc*a-k)%ta
+					if c.isupper():
+						cr += alfabeto[val].upper()
+					else:
+						cr += alfabeto[val].lower()
 				else:
-					cr += alfabeto[val].lower()
-			else:
-				cr += ' '
-	else:
-		cr += c
-print(cr)
+					cr += ' '
+		else:
+			cr += c
+	print(cr)
+else:
+	print("La clave debe ser mayor a 0")

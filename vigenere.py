@@ -2,12 +2,16 @@ def cifrar(alfabeto,mensaje,clave):
 	criptograma = ''
 	mensaje = mensaje.upper()
 	clave = clave.upper()
-
 	for c in range(len(mensaje)):
+		if((len(clave)<len(mensaje))):
+			cl = c%len(clave)
+		else:
+			cl = c
+
 		t = len(alfabeto)
-		if(mensaje[c].upper() in alfabeto):
+		if(mensaje[c] in alfabeto):
 			xi = alfabeto.index(mensaje[c].upper())
-			zi = alfabeto.index(clave[c].upper())
+			zi = alfabeto.index(clave[cl].upper())
 			yi = (xi+zi)%t
 			criptograma += alfabeto[yi]
 		else:
@@ -20,10 +24,15 @@ def descifrar(alfabeto,criptograma,clave):
 	clave = clave.upper()
 
 	for c in range(len(criptograma)):
+		if((len(clave)<len(criptograma))):
+			cl = c%len(clave)
+		else:
+			cl = c
+
 		t = len(alfabeto)
-		if(criptograma[c].upper() in alfabeto):
+		if(criptograma[c] in alfabeto):
 			xi = alfabeto.index(criptograma[c].upper())
-			zi = alfabeto.index(clave[c].upper())
+			zi = alfabeto.index(clave[cl].upper())
 			yi = (xi-zi)%t
 			mensaje += alfabeto[yi]
 		else:
@@ -51,17 +60,11 @@ if(opc == '1'):
 	m = input()
 	print('Digite la clave:')
 	k = input()
-	if(len(m)==len(k)):
-		print ('Criptograma: '+cifrar(alfabeto,m,k))
-	else:
-		print ('Error: la clave y el mensaje deben tener la misma cantidad de caracteres!!!')
+	print ('Criptograma: '+cifrar(alfabeto,m,k))
 elif(opc == '2'):
 	print('Digite el criptograma:')
 	cr = input()
 	print('Digite la clave:')
 	k = input()
-	if(len(cr)==len(k)):
-		print ('Mensaje: '+descifrar(alfabeto,cr,k))
-	else:
-		print ('Error: la clave y el criptograma deben tener la misma cantidad de caracteres!!!')
+	print ('Mensaje: '+descifrar(alfabeto,cr,k))
 	
